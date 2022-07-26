@@ -2,10 +2,21 @@
 <%- include('../partials/navbar.ejs') %>
 
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <h2 class="display-4">show event ...</h2>
-        </div>
+    <div class="row mt-4">
+        <div class="col-sm-9 offset-md-1">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= event.title %></h5>
+                  <hr>
+                  <p class="card-text"><%= event.description %></p>
+                  <p class="card-text"><%= event.location %></p>
+                  <p><span class="badge badge-secondary"><%= event.date %></span></p>
+                  <a href="" class="btn btn-primary">Edit</a>
+                  <a href="" class="btn btn-danger">Edit</a>
+                  
+                </div>
+              </div>
+          </div>
     </div>
 </div>
 

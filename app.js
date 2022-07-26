@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const port = 5000
+const port = 3000
 
 // import datbase 
 const db = require("./config/db")
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 // import event-routes 
 const event = require("./routes/event-routes")
-app.use("/event", event)
+app.use("/events", event)
 
 
 // server listen to port

@@ -1,6 +1,4 @@
 
-
-
     <%- include('../partials/header.ejs') %> 
     <%- include('../partials/navbar.ejs') %>
 
@@ -14,7 +12,7 @@
                     <h5 class="card-title"><%= event.title %></h5>
                     <p class="card-text"><%= event.description %></p>
                     <p class="card-text"><%= event.location %></p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="<%= /events/ + event.id %>" class="btn btn-primary">Go somewhere</a>
                   </div>
                 </div>
             </div>

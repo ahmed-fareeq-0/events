@@ -1,8 +1,10 @@
+// import db or connection 
 const db = require("../config/db")
+// event schema
 const Event = require("../models/Event")
 
 
-
+// user data
 let newEvent = [
     new Event({
         title: "ahmed",
