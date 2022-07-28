@@ -5,8 +5,15 @@ const port = 3000
 // import datbase 
 const db = require("./config/db")
 
+// import bodyparser 
+const bodyParser = require("body-parser")
+
 // import ejs
 app.set('view engine', 'ejs')
+
+// bring body parser
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 // bring static
 app.use(express.static('public'))

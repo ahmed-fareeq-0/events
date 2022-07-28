@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs') %> 
+<%- include('../partials/navbar.ejs') %>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="display-5">Add New Event:</h1>
+            <form action="/events/create" method="post">
+                <div class="form-group">
+                    
+                    <input type="text" name="title" id="tile" placeholder="title" class="form-control">
+                </div>
+
+                <div class="form-group">
+                   <textarea name="description" rows="4" placeholder="description" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                    
+                    <input type="text" name="location" id="location" placeholder="location" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    
+                    <input type="date" name="date" id="date" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"> Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

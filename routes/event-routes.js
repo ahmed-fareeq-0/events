@@ -17,21 +17,24 @@ router.get("/", (req, res) => {
     
 })
 
+// route create 
+router.get( "/create", (req,res) => {
+    res.render("../views/event/createEvent.ejs")
+})
+
+
+// Take data from form
+router.post("/create", (req,res) => {
+    console.log(req.body);
+    res.redirect("/events")
+})
+
+
 // show single event
 router.get("/:id", (req, res) => {
 
     //  search in eventSchema and show data in showEvent
     Event.findOne({_id: req.params.id}, (err,event) => {
-        // if(!err){
-        //     console.log(event)
-        //     res.render("event/showEvent.ejs", {
-        //         event: event
-        //     })
-
-        // }else{
-        //     console.log(err)
-        // }
-
         !err ? res.render("event/showEvent.ejs", {event: event}) : console.log(err)
     })
     
