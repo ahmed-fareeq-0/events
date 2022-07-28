@@ -23,10 +23,20 @@ router.get( "/create", (req,res) => {
 })
 
 
-// Take data from form
+// Take data from form and save to db
 router.post("/create", (req,res) => {
-    console.log(req.body);
-    res.redirect("/events")
+
+    let newEvent = new Event({
+        title: req.body.title,
+        description: req.body.description,
+        location: req.body.location,
+        date: req.body.date,
+        created_at: Date.now()
+    })
+
+    newEvent.save((err) => {
+        !err ? res.redirect("/events") : console.log(err)
+    })
 })
 
 
