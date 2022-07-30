@@ -5,6 +5,15 @@
     <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
             <h1 class="display-5">Add New Event:</h1>
+
+            <% if(errors) { %> 
+                <% errors.map((err)=> {%>
+                    <div class="alert alert-danger">
+                            <%= err.msg%>
+                    </div>
+                <%})%>
+            <% } %> 
+            
             <form action="/events/create" method="post">
                 <div class="form-group">
                     

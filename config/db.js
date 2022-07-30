@@ -2,7 +2,7 @@
  // import Mongoose 
  const mongoose = require("mongoose")
  // url Database
- const URlDB = "mongodb+srv://ahmedfareeq:07715503646ice2002@cluster0.zxql8.mongodb.net/?retryWrites=true&w=majority";
+ const URlDB = 'mongodb://localhost:27017/Events'
 
  // connect in Database
  mongoose.connect(URlDB, (err) => {
