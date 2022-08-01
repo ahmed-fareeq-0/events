@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
 // route create 
 router.get( "/create", (req,res) => {
     res.render("../views/event/createEvent.ejs", {
-        errors: false
+        errors: req.flash("errors")
     })
 })
 
@@ -42,9 +42,8 @@ router.post("/create", [
 
     if( !errors.isEmpty() ) {
         
-        res.render('event/createEvent', {
-            errors:errors.array()
-        })
+        req.flash("errors", errors.array())
+        res.redirect('/events/create')
 
     } else {
 
@@ -57,7 +56,12 @@ router.post("/create", [
         })
 
         newEvent.save((err) => {
-            !err ? res.redirect("/events") : console.log(err)
+
+            if(!err) {
+                res.redirect("/events")
+            }else{
+                console.log(err)
+            }
         })
 
     }
@@ -69,7 +73,7 @@ router.post("/create", [
 router.get("/:id", (req, res) => {
 
     //  search in eventSchema and show data in showEvent
-    Event.findOne({_id: req.params.id}, (err,event) => {
+    Event.findOne({_id: req.params.id}, (err, event) => {
         !err ? res.render("event/showEvent.ejs", {event: event}) : console.log(err)
     })
     

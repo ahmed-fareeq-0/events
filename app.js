@@ -8,6 +8,12 @@ const db = require("./config/db")
 // import bodyparser 
 const bodyParser = require("body-parser")
 
+// import session
+const session = require("express-session")
+
+// import session
+const flash = require("connect-flash")
+
 // import ejs
 app.set('view engine', 'ejs')
 
@@ -18,6 +24,16 @@ app.use(bodyParser.json())
 // bring static
 app.use(express.static('public'))
 app.use(express.static("node_modules"))
+
+// configuriton session and flash
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 * 15}
+  }))
+
+app.use(flash())
 
 
 app.get("/", (req, res) => {
